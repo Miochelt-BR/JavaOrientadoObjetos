@@ -54,6 +54,7 @@ public class Conta {
     public void setSaldo(float saldo) {
         this.saldo = saldo;
     }
+
     public boolean sacar(float valor ){
         if (this.getSaldo() < valor){
             System.out.println("saldo in suficiente ");
@@ -66,14 +67,24 @@ public class Conta {
 
     }
     public void visualizar() {
+        String tipo ="";
+        switch (getTipoConta()){
+            case 1:
+                tipo="conta Corrente";
+                break;
+            case 2:
+                tipo= "conta poupanca";
+                break;
+        }
         System.out.println("\n**********");
         System.out.println("** Dados da Conta **");
         System.out.println("**********");
         System.out.println("\nNúmero da Conta: " + getNumeroConta());
         System.out.println("\nNúmero da Agência: " + getAgencia());
-        System.out.println("\nTipo da Conta: " + getTipoConta());
+        System.out.println("\nTipo da Conta: " + tipo);
         System.out.println("\nTitular da Conta: " + getTitular());
         System.out.println("\nSaldo da Conta: " + getSaldo());
+
 
     }
 }
